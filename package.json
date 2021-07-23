@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "nodemon --exec babel-node server.js"
+    "dev": "nodemon --exec babel-node server.js",
+    "migrate": "npx prisma migrate dev",
+    "syudio": "npx prisma studio"
   },
   "repository": {
     "type": "git",
