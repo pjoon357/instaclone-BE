@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node server.js",
     "migrate": "npx prisma migrate dev",
-    "syudio": "npx prisma studio"
+    "studio": "npx prisma studio"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "@prisma/client": "^2.27.0",
     "apollo-server": "^3.0.2",
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
     "graphql-tools": "^7.0.5"
