@@ -1,5 +1,5 @@
-import bycrypt from "bcrypt";
-import client from "../client";
+import bcrypt from "bcrypt";
+import client from "../../client";
 
 export default {
     Mutation: {
@@ -22,7 +22,7 @@ export default {
                 if (existingUser) {
                     throw new Error("This username/email is already taken.");
                 }
-                const uglyPassword = await bycrypt.hash(password, 10);
+                const uglyPassword = await bcrypt.hash(password, 10);
                 return client.user.create({
                     data: {
                         username,
@@ -36,6 +36,6 @@ export default {
                 return err;
             }
 
-        }
+        },
     }
-}
+};
