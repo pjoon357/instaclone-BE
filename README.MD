@@ -8,6 +8,8 @@ Instaclone Backend
 - See Profile
 - Login
 - Edit Profile
-- Follow User
-- Unfollow User
 - Change Avatar (Image Upload)
+- Follow User & Unfollow User 
+- See Followers & Following with Pagination
+- computed field
+- Search Users
