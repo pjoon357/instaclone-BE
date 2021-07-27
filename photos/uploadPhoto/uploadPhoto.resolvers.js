@@ -1,16 +1,12 @@
 import { protectedResolver } from "../../users/users.utils";
 import { GraphQLUpload } from "graphql-upload";
 import client from "../../client";
+import { processHashtags } from "../photos.utils";
 
 const resolverFn = async (_, { file, caption }, { loggendInUser }) => {
     let hashtagObjs = [];
     if (caption) {
-        const hashtags = caption.match(/#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g);
-        hashtagObjs = hashtags.map((hashtag) => ({
-            where: { hashtag },
-            create: { hashtag }
-        })
-        );
+        hashtagObjs = processHashtags(caption);
     }
     return client.photo.create({
         data: {
