@@ -2,14 +2,17 @@ import client from "../../client";
 
 export default {
     Query: {
-        seeLikes: (_, { id }) => client.user.findMany({
+        seeLikes: (_, { id, lastId }) => client.user.findMany({
             where: {
-                likes:{
-                    some:{
+                likes: {
+                    some: {
                         photoId: id,
                     }
                 }
-            }
+            },
+            take: 20,
+            skip: lastId ? 1 : 0,
+            ...(lastId && { cursor: { id: lastId } }),
         })
     }
 };

@@ -24,3 +24,11 @@ Instaclone Backend
 - Like.UnLike Photo
 - See Photo likes
 - See Feed
+- isMine (Delete Photo)
+- see Photo comments
+
+## Comment
+
+- Comment on Photo
+- Edit Comment
+- Delete Comment
