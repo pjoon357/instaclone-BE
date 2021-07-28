@@ -1,11 +1,11 @@
 import { gql } from "apollo-server-express";
 
 export default gql`
-    type toggleLikeResult{
+    type deleteCommentResult{
         ok: Boolean!
         error: String
     }
     type Mutation {
-        toggleLike(id: Int!): toggleLikeResult!
+        deleteComment(id: Int! ): deleteCommentResult!
     }
 `;
