@@ -35,6 +35,7 @@ Instaclone Backend
 
 ## DM
  
-- Get Room
+- See Rooms
 - Send Message (Create Room)
+- See Room
 - Realtime Message
