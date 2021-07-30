@@ -1,5 +1,7 @@
 import { protectedResolver } from "../../users/users.utils";
 import client from "../../client";
+import pubsub from "../../pubsub";
+import { NEW_MESSAGE } from "../../constants";
 
 const resolverFn = async (_, { payload, roomId, userId }, { loggedInUser }) => {
     let room = null;
@@ -48,7 +50,7 @@ const resolverFn = async (_, { payload, roomId, userId }, { loggedInUser }) => {
             };
         }
     }
-    await client.message.create({
+    const message = await client.message.create({
         data: {
             payload,
             room: {
@@ -63,6 +65,9 @@ const resolverFn = async (_, { payload, roomId, userId }, { loggedInUser }) => {
             },
         },
     });
+
+    pubsub.publish(NEW_MESSAGE, { roomUpdate: { ...message } });
+
     return {
         ok: true,
     };
