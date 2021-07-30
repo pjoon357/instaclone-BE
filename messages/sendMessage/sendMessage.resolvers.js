@@ -1,4 +1,5 @@
 import { protectedResolver } from "../../users/users.utils";
+import client from "../../client";
 
 const resolverFn = async (_, { payload, roomId, userId }, { loggedInUser }) => {
     let room = null;
