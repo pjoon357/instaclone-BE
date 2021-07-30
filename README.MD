@@ -32,3 +32,9 @@ Instaclone Backend
 - Comment on Photo
 - Edit Comment
 - Delete Comment
+
+## DM
+ 
+- Get Room
+- Send Message (Create Room)
+- Realtime Message
