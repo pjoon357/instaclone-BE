@@ -15,7 +15,8 @@ export default {
             }
         }),
         likes: ({ id }) => client.like.count({ where: { photoId: id } }),
-        comments: ({ id }) => client.comment.count({ where: { photoId: id } }),
+        totalComments: ({ id }) => client.comment.count({ where: { photoId: id } }),
+        comments: ({ id }) => client.comment.findMany({ where: { photoId: id }, include: { user: true } }),
         isMine: ({ userId }, _, { loggedInUser }) => {
             if (!loggedInUser) {
                 return false;
