@@ -1,11 +1,10 @@
 import client from "../../client";
 import { protectedResolver } from "../../users/users.utils";
 
-const resolverFn = (_, { lastId }, { loggedInUser }) =>
+const resolverFn = (_, { offset }, { loggedInUser }) =>
     client.photo.findMany({
-        take: 5,
-        skip: lastId ? 1 : 0,
-        ...(lastId && { cursor: { id: lastId } }),
+        take: 2,
+        skip: offset,
         where: {
             OR: [
                 {
