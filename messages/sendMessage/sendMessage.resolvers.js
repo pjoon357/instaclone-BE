@@ -69,6 +69,7 @@ const resolverFn = async (_, { payload, roomId, userId }, { loggedInUser }) => {
     pubsub.publish(NEW_MESSAGE, { roomUpdate: { ...message } });
 
     return {
+        id: message.id,
         ok: true,
     };
 };
